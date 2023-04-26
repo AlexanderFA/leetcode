@@ -41,9 +41,9 @@ class Solution {
     {
         $flipped = array_flip($nums);
 
-        for ($i = 0; $i < count($nums); $i++) {
+        for ($i = 0; $i < count($nums) - 1; $i++) {
             $diff = $target - $nums[$i];
-            if (isset($flipped[$diff])) {
+            if (isset($flipped[$diff]) && $flipped[$diff] !== $i) {
                 return [$i, $flipped[$diff]];
             }
         }
@@ -52,5 +52,5 @@ class Solution {
     }
 }
 
-\assert(empty(array_diff((new Solution())->twoSum([2,7,11,15], 9), [0, 1])));
-\assert(empty(array_diff((new Solution())->twoSum2([2,7,11,15], 9), [0, 1])));
+\assert(empty(array_diff((new Solution())->twoSum([2, 7, 11, 15], 9), [0, 1])));
+\assert(empty(array_diff((new Solution())->twoSum2([3,2,4], 6), [1, 2])));
