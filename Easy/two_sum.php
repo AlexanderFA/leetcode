@@ -11,6 +11,8 @@
  */
 class Solution {
     /**
+     * O(n^2) approach
+     *
      * @param Integer[] $nums
      * @param Integer $target
      * @return Integer[]
@@ -27,6 +29,28 @@ class Solution {
 
         return null;
     }
+
+    /**
+     * O(n) approach
+     *
+     * @param array $nums
+     * @param int $target
+     * @return array|null
+     */
+    function twoSum2(array $nums, int $target): ?array
+    {
+        $flipped = array_flip($nums);
+
+        for ($i = 0; $i < count($nums); $i++) {
+            $diff = $target - $nums[$i];
+            if (isset($flipped[$diff])) {
+                return [$i, $flipped[$diff]];
+            }
+        }
+
+        return null;
+    }
 }
 
 \assert(empty(array_diff((new Solution())->twoSum([2,7,11,15], 9), [0, 1])));
+\assert(empty(array_diff((new Solution())->twoSum2([2,7,11,15], 9), [0, 1])));
