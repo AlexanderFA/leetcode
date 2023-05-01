@@ -1,0 +1,9 @@
+{
+    "name": "aleksandr/leetcode",
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "webmozart/assert": "^1.11"
+    }
+}
